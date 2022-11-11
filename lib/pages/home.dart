@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
                 children: [
                   MaterialButton(onPressed: (){
                   },
-                    color: Colors.blueGrey,
+                    color: Colors.lightBlueAccent,
                     child: Text('Turn on location', style: TextStyle(
                       color: Colors.white,
                       fontSize: 17.0,
