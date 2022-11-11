@@ -32,23 +32,23 @@ class _HomeState extends State<Home> {
   }
 
   Future getWeather() async{
-    print("lat = "+lat);
-    print("lon = "+lon);
-    http.Response response = await http.get(Uri.parse('https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&units=metric&appid=382c950e1e150b70392101ded43e7739'));
+    //print("lat = "+lat);
+    //print("lon = "+lon);
+    http.Response response = await http.get(Uri.parse("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric&appid=382c950e1e150b70392101ded43e7739"));
     var results = jsonDecode(response.body);
     setState(() {
-      //cityName = results['name'];
+      cityName = results['name'];
       temp = results['main']['temp'].toString();
       realFeel = results['main']['feels_like'].toString();
       humidity = results['main']['humidity'].toString();
       windSpeed = results['wind']['speed'].toString();
       weatherDescription = results['weather'][0]['description'].toString();
       pressure = results['main']['pressure'].toString();
-      sunrise = results['sys']['sunrise'];
-      sunset = results['sys']['sunset'];
+      //sunrise = results['sys']['sunrise'];
+      //sunset = results['sys']['sunset'];
     });
-    // print("lat = "+lat);
-    // print("lon = "+lon);
+    print("lat = "+lat);
+    print("lon = "+lon);
     print("temp = "+temp);
   }
 
@@ -114,7 +114,7 @@ class _HomeState extends State<Home> {
                       ),
                       //Padding(padding: EdgeInsets.all(15.0),),
                       Text(
-                          temp==null?"Loading...":temp+"\u00B0C",
+                          temp!=null? temp+"\u00B0C":"Loading...",
                         style: TextStyle(
                           fontSize: 50.0,
                           fontWeight: FontWeight.bold,
