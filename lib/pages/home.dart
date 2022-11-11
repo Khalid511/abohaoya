@@ -17,6 +17,25 @@ class _HomeState extends State<Home> {
           ),),
           centerTitle: true,
         ),
+        body: Column(
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  MaterialButton(onPressed: (){
+                  },
+                    color: Colors.blueGrey,
+                    child: Text('Turn on location', style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17.0,
+                        fontWeight: FontWeight.bold
+                  ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
     );
   }
 }
