@@ -136,7 +136,7 @@ class _HomeState extends State<Home> {
                         Text('Temperature'),
                         Padding(padding: EdgeInsets.only(bottom: 10.0), ),
                         Text(
-                          temp!=null? temp+"\u00B0C":"Loading...",
+                          temp!=null? temp+"\u00B0C":"Load...",
                           style: TextStyle(
                             fontSize: 22.0,
                             fontWeight: FontWeight.bold,
@@ -151,6 +151,26 @@ class _HomeState extends State<Home> {
                 ),
                 ),
               ),
+              Expanded(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  color: Colors.lightBlueAccent,
+                  child: Padding(padding: EdgeInsets.all(20.0),
+                    child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text('jhsfhksfd')
+                        ],
+                      )
+                    ],
+                  ),
+                  ),
+                ),
+
+                  ),
             ],
           ),
     );
