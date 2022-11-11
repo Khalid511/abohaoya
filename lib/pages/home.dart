@@ -12,7 +12,7 @@ class _HomeState extends State<Home> {
       Scaffold(
 
         appBar: AppBar(
-          title: Text('Weather Dekho',),
+          title: Text('আবহাওয়া দেখুন',),
           centerTitle: true,
 
         ),
