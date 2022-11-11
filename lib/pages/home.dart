@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -6,6 +7,34 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  String lat = '24.45', lon = '89.7167', cityName = 'Sirajganj';
+
+  void getLocation() async{
+    LocationPermission locationPermission = await Geolocator.checkPermission();
+    if(locationPermission==LocationPermission.denied || locationPermission==LocationPermission.deniedForever) {
+      LocationPermission get = await Geolocator.requestPermission();
+    }
+    else {
+      Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
+      setState(() {
+        this.lon = position.longitude.toString();
+        this.lat = position.latitude.toString();
+
+      });
+      // print("long on loc = "+long);
+      // print("lat on loc" +lat);
+    }
+  }
+
+  void getWeather() {
+    print("lat = "+lat);
+    print("lon = "+lon);
+  }
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,16 +51,18 @@ class _HomeState extends State<Home> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  MaterialButton(onPressed: (){
+                  ElevatedButton(onPressed: () {
+                    getLocation();
+                    getWeather();
                   },
-                    color: Colors.lightBlueAccent,
-                    child: Text('Turn on location', style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17.0,
-                        fontWeight: FontWeight.bold
-                  ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.blueGrey,
                     ),
-                  ),
+                    child: Text('Turn on location', style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 17.0,
+                        fontWeight: FontWeight.bold
+                    ),),),
                 ],
               ),
               Container(
