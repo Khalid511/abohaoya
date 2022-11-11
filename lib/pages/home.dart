@@ -8,15 +8,15 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child:
-      Scaffold(
-
+    return Scaffold(
         appBar: AppBar(
-          title: Text('আবহাওয়া দেখুন',),
+          title: Text('আবহাওয়া দেখুন',
+          style: TextStyle(
+            fontSize: 22.0,
+            fontWeight: FontWeight.bold,
+          ),),
           centerTitle: true,
-
         ),
-      ),
     );
   }
 }
