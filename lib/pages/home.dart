@@ -93,34 +93,60 @@ class _HomeState extends State<Home> {
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: 210.0,
-                child: Padding(padding: EdgeInsets.all(38.0),
+                child: Padding(padding: EdgeInsets.all(2.0),
                 child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                   ),
-                  color: Colors.black26,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                  color: Colors.yellow,
+                  child: Padding(padding: EdgeInsets.all(20.0),
+                    child: Row(
+                  children: <Widget>[
+                    Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       //Padding(padding: EdgeInsets.all(20.0),),
+                      Image.asset("assets/images/location.png",
+                      height: 25.0,
+                      width: 25.0,
+                      fit: BoxFit.cover,),
+                      Text('Location'),
+                      Padding(padding: EdgeInsets.only(bottom: 10.0),),
                       Text(
                         cityName,
                         style: TextStyle(
-                          fontSize: 40.0,
+                          fontSize: 22.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),
                       //Padding(padding: EdgeInsets.all(15.0),),
-                      Text(
-                          temp!=null? temp+"\u00B0C":"Loading...",
-                        style: TextStyle(
-                          fontSize: 50.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
                     ],
+                  ),
+                    Padding(padding: EdgeInsets.all(80.0),),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset("assets/images/temperature.png",
+                          height: 25.0,
+                          width: 25.0,
+                          fit: BoxFit.cover,),
+                        Text('Temperature'),
+                        Padding(padding: EdgeInsets.only(bottom: 10.0), ),
+                        Text(
+                          temp!=null? temp+"\u00B0C":"Loading...",
+                          style: TextStyle(
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.bold,
+                           // color: Colors.blueAccent,
+                          ),
+                        ),
+                      ],
+                    )
+                    ],
+                ),
                   ),
                 ),
                 ),
