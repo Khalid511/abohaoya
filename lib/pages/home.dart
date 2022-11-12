@@ -162,6 +162,7 @@ class _HomeState extends State<Home> {
                   child: Padding(padding: EdgeInsets.all(10.0),
                     child: Column(
                     children: [
+                      Padding(padding: EdgeInsets.only(bottom: 15.0),),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -187,7 +188,7 @@ class _HomeState extends State<Home> {
                           ),
                         ],
                       ),
-                      Padding(padding: EdgeInsets.only(bottom: 25.0),),
+                      Padding(padding: EdgeInsets.only(bottom: 45.0),),
                       Row(
                         children: [
                           Padding(padding: EdgeInsets.only(right: 20.0), ),
@@ -197,18 +198,18 @@ class _HomeState extends State<Home> {
                               height: 25.0,
                               width: 25.0,
                               fit: BoxFit.cover,),
-                              Text('Real feel'),
+                              Text('Real feeling'),
                               Padding(padding: EdgeInsets.all(2.0),),
                               Text(
                                 realFeel!=null? realFeel+"\u00B0C":"Load...",
                                 style: TextStyle(
-                                  fontSize: 22.0,
+                                  fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ],
                           ),
-                          Padding(padding: EdgeInsets.only(right: 160.0), ),
+                          Padding(padding: EdgeInsets.only(right: 145.0), ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -217,12 +218,12 @@ class _HomeState extends State<Home> {
                               height: 25.0,
                               width: 25.0,
                               fit: BoxFit.cover,),
-                              Text("Humidity"),
+                              Text("Humidity Scale"),
                               Padding(padding: EdgeInsets.all(2.0),),
                               Text(
                                 humidity!=null?humidity+"%":"Load...",
                                 style: TextStyle(
-                                  fontSize: 22.0,
+                                  fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -230,7 +231,7 @@ class _HomeState extends State<Home> {
                           ),
                         ],
                       ),
-                      Padding(padding: EdgeInsets.only(bottom: 35.0), ),
+                      Padding(padding: EdgeInsets.only(bottom: 45.0), ),
                       Row(
                         children: [
                           Padding(padding: EdgeInsets.only(right: 20.0), ),
@@ -248,28 +249,28 @@ class _HomeState extends State<Home> {
                               Text(
                                 windSpeed!=null?windSpeed+"km/h":"Load...",
                                 style: TextStyle(
-                                  fontSize: 22.0,
+                                  fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ],
                           ),
-                          Padding(padding: EdgeInsets.only(right: 123.0), ),
+                          Padding(padding: EdgeInsets.only(right: 145.0), ),
                           Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                            //mainAxisAlignment: MainAxisAlignment.center,
+                            //crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Image.asset("assets/images/icons8-pressure-96.png",
                                 height: 25.0,
                                 width: 25.0,
                                 fit: BoxFit.cover,
                               ),
-                              Text('Pressure'),
+                              Text('Pressure Panb'),
                               Padding(padding: EdgeInsets.only(bottom: 2.0), ),
                               Text(
                                 pressure!=null?pressure+"hPa":"Load...",
                                 style: TextStyle(
-                                  fontSize: 20.0,
+                                  fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -277,7 +278,7 @@ class _HomeState extends State<Home> {
                           )
                         ],
                       ),
-                      Padding(padding: EdgeInsets.only(bottom: 35.0), ),
+                      Padding(padding: EdgeInsets.only(bottom: 45.0), ),
                       Row(
                         children: [
                           Padding(padding: EdgeInsets.only(right: 20.0), ),
@@ -291,18 +292,18 @@ class _HomeState extends State<Home> {
                                 width: 25.0,
                                 fit: BoxFit.cover,
                               ),
-                              Text("Sunrise"),
+                              Text("Sunrise time"),
                               Padding(padding: EdgeInsets.only(bottom: 2.0),),
                               Text(
                                 sunrise!=null?sunrise:"Load...",
                                 style: TextStyle(
-                                  fontSize: 22.0,
+                                  fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ],
                           ),
-                          Padding(padding: EdgeInsets.only(right: 123.0), ),
+                          Padding(padding: EdgeInsets.only(right: 145.0), ),
                           Column(
                             children: [
                               Image.asset("assets/images/sunset.png",
@@ -310,12 +311,12 @@ class _HomeState extends State<Home> {
                                 width: 25.0,
                                 fit: BoxFit.cover,
                               ),
-                              Text("Sunset"),
+                              Text("Sunset time"),
                               Padding(padding: EdgeInsets.only(bottom: 2.0), ),
                               Text(
                                 sunset!=null?sunset:"Load...",
                                 style: TextStyle(
-                                  fontSize: 22.0,
+                                  fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                               )
