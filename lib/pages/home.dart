@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
+import 'package:abohaoya/pages/getTime.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,6 +14,7 @@ class _HomeState extends State<Home> {
 
   String lat = '24.45', lon = '89.7167', cityName = 'Sirajganj';
   var temp, realFeel, humidity, windSpeed, weatherDescription, pressure, sunrise, sunset;
+  var dateTime = new getTime();
 
   void getLocation() async{
     LocationPermission locationPermission = await Geolocator.checkPermission();
@@ -44,8 +46,8 @@ class _HomeState extends State<Home> {
       windSpeed = results['wind']['speed'].toString();
       weatherDescription = results['weather'][0]['description'].toString();
       pressure = results['main']['pressure'].toString();
-      //sunrise = results['sys']['sunrise'];
-      //sunset = results['sys']['sunset'];
+      sunrise = dateTime.readTime(results['sys']['sunrise']);
+      sunset = dateTime.readTime(results['sys']['sunset']);
     });
     print("lat = "+lat);
     print("lon = "+lon);
@@ -273,7 +275,49 @@ class _HomeState extends State<Home> {
                             ],
                           )
                         ],
-                      )
+                      ),
+                      Padding(padding: EdgeInsets.only(bottom: 10.0), ),
+                      Row(
+                        children: [
+                          Column(
+                            children: [
+                              Image.asset("assets/images/sunrise.png",
+                                height: 25.0,
+                                width: 25.0,
+                                fit: BoxFit.cover,
+                              ),
+                              Text("Sunrise"),
+                              Padding(padding: EdgeInsets.only(bottom: 2.0),),
+                              Text(
+                                sunrise!=null?sunrise:"Load...",
+                                style: TextStyle(
+                                  fontSize: 22.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(padding: EdgeInsets.only(right: 160.0), ),
+                          Column(
+                            children: [
+                              Image.asset("assets/images/sunset.png",
+                                height: 25.0,
+                                width: 25.0,
+                                fit: BoxFit.cover,
+                              ),
+                              Text("Sunset"),
+                              Padding(padding: EdgeInsets.only(bottom: 2.0), ),
+                              Text(
+                                sunset!=null?sunset:"Load...",
+                                style: TextStyle(
+                                  fontSize: 22.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ],
                   ),
                   ),
