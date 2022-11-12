@@ -156,13 +156,52 @@ class _HomeState extends State<Home> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                   ),
-                  color: Colors.lightBlueAccent,
+                  color: Colors.blueGrey,
                   child: Padding(padding: EdgeInsets.all(20.0),
                     child: Column(
                     children: [
                       Row(
                         children: [
-                          Text('jhsfhksfd')
+                          Padding(padding: EdgeInsets.only(right: 20.0), ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Image.asset("assets/images/feels_like.png",
+                              height: 25.0,
+                              width: 25.0,
+                              fit: BoxFit.cover,),
+                              Text('Real feel'),
+                              Padding(padding: EdgeInsets.all(2.0),),
+                              Text(
+                                realFeel!=null? realFeel+"\u00B0C":"Load...",
+                                style: TextStyle(
+                                  fontSize: 22.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(padding: EdgeInsets.only(right: 160.0), ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset("assets/images/description.png",
+                              height: 25.0,
+                              width: 25.0,
+                              fit: BoxFit.cover,),
+                              Text("Description"),
+                              Padding(padding: EdgeInsets.all(2.0),),
+                              Text(
+                                weatherDescription!=null?weatherDescription:"Load...",
+                                style: TextStyle(
+                                  fontSize: 22.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
                         ],
                       )
                     ],
