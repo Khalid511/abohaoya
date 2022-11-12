@@ -159,12 +159,13 @@ class _HomeState extends State<Home> {
                     borderRadius: BorderRadius.circular(20.0),
                   ),
                   color: Colors.blueGrey,
-                  child: Padding(padding: EdgeInsets.all(20.0),
+                  child: Padding(padding: EdgeInsets.all(10.0),
                     child: Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          Padding(padding: EdgeInsets.only(bottom: 20.0)),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -186,13 +187,11 @@ class _HomeState extends State<Home> {
                           ),
                         ],
                       ),
-                      Padding(padding: EdgeInsets.only(bottom: 15.0),),
+                      Padding(padding: EdgeInsets.only(bottom: 25.0),),
                       Row(
                         children: [
                           Padding(padding: EdgeInsets.only(right: 20.0), ),
                           Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Image.asset("assets/images/feels_like.png",
                               height: 25.0,
@@ -231,7 +230,7 @@ class _HomeState extends State<Home> {
                           ),
                         ],
                       ),
-                      Padding(padding: EdgeInsets.only(bottom: 15.0), ),
+                      Padding(padding: EdgeInsets.only(bottom: 35.0), ),
                       Row(
                         children: [
                           Padding(padding: EdgeInsets.only(right: 20.0), ),
@@ -255,8 +254,10 @@ class _HomeState extends State<Home> {
                               ),
                             ],
                           ),
-                          Padding(padding: EdgeInsets.only(right: 160.0), ),
+                          Padding(padding: EdgeInsets.only(right: 123.0), ),
                           Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Image.asset("assets/images/icons8-pressure-96.png",
                                 height: 25.0,
@@ -276,11 +277,15 @@ class _HomeState extends State<Home> {
                           )
                         ],
                       ),
-                      Padding(padding: EdgeInsets.only(bottom: 10.0), ),
+                      Padding(padding: EdgeInsets.only(bottom: 35.0), ),
                       Row(
                         children: [
+                          Padding(padding: EdgeInsets.only(right: 20.0), ),
                           Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
+                              //Padding(padding: EdgeInsets.only(right: 7.0), ),
                               Image.asset("assets/images/sunrise.png",
                                 height: 25.0,
                                 width: 25.0,
@@ -297,7 +302,7 @@ class _HomeState extends State<Home> {
                               ),
                             ],
                           ),
-                          Padding(padding: EdgeInsets.only(right: 160.0), ),
+                          Padding(padding: EdgeInsets.only(right: 123.0), ),
                           Column(
                             children: [
                               Image.asset("assets/images/sunset.png",
