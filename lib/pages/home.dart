@@ -161,6 +161,31 @@ class _HomeState extends State<Home> {
                     child: Column(
                     children: [
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset("assets/images/description.png",
+                                height: 25.0,
+                                width: 25.0,
+                                fit: BoxFit.cover,),
+                              Text("Weather description"),
+                              Padding(padding: EdgeInsets.all(2.0),),
+                              Text(
+                                weatherDescription!=null?weatherDescription:"Load...",
+                                style: TextStyle(
+                                  fontSize: 22.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Padding(padding: EdgeInsets.only(bottom: 15.0),),
+                      Row(
                         children: [
                           Padding(padding: EdgeInsets.only(right: 20.0), ),
                           Column(
@@ -187,14 +212,14 @@ class _HomeState extends State<Home> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Image.asset("assets/images/description.png",
+                              Image.asset("assets/images/humidity.png",
                               height: 25.0,
                               width: 25.0,
                               fit: BoxFit.cover,),
-                              Text("Description"),
+                              Text("Humidity"),
                               Padding(padding: EdgeInsets.all(2.0),),
                               Text(
-                                weatherDescription!=null?weatherDescription:"Load...",
+                                humidity!=null?humidity+"%":"Load...",
                                 style: TextStyle(
                                   fontSize: 22.0,
                                   fontWeight: FontWeight.bold,
@@ -202,6 +227,51 @@ class _HomeState extends State<Home> {
                               ),
                             ],
                           ),
+                        ],
+                      ),
+                      Padding(padding: EdgeInsets.only(bottom: 15.0), ),
+                      Row(
+                        children: [
+                          Padding(padding: EdgeInsets.only(right: 20.0), ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset("assets/images/wind.png",
+                                height: 25.0,
+                                width: 25.0,
+                                fit: BoxFit.cover,
+                              ),
+                              Text("Wind speed"),
+                              Padding(padding: EdgeInsets.all(2.0), ),
+                              Text(
+                                windSpeed!=null?windSpeed+"km/h":"Load...",
+                                style: TextStyle(
+                                  fontSize: 22.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(padding: EdgeInsets.only(right: 160.0), ),
+                          Column(
+                            children: [
+                              Image.asset("assets/images/icons8-pressure-96.png",
+                                height: 25.0,
+                                width: 25.0,
+                                fit: BoxFit.cover,
+                              ),
+                              Text('Pressure'),
+                              Padding(padding: EdgeInsets.only(bottom: 2.0), ),
+                              Text(
+                                pressure!=null?pressure+"hPa":"Load...",
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          )
                         ],
                       )
                     ],
