@@ -91,7 +91,7 @@ class _HomeState extends State<Home> {
                     getWeather();
                   },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.blueGrey,
+                      primary: Colors.red.shade900,
                     ),
                     child: Text('Turn on location', style: TextStyle(
                         color: Colors.white,
@@ -103,15 +103,30 @@ class _HomeState extends State<Home> {
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: 210.0,
+                // decoration: BoxDecoration(
+                //     image: DecorationImage(
+                //       image: AssetImage("assets/images/pexels-pixabay-36717.jpg"),
+                //       fit: BoxFit.cover,
+                //     )
+                // ),
                 child: Padding(padding: EdgeInsets.all(2.0),
                 child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                   ),
-                  color: Colors.yellow,
+                  //Colors.amberAccent.shade400
+                  color: Colors.amberAccent.shade400,
                   child: Padding(padding: EdgeInsets.all(20.0),
                     child: Row(
                   children: <Widget>[
+                    // Container(
+                    // decoration: BoxDecoration(
+                    //       image: DecorationImage(
+                    //         image: AssetImage("assets/images/pexels-pixabay-36717.jpg"),
+                    //         fit: BoxFit.cover,
+                    //       ),
+                    //    ),
+                    // ),
                     Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -202,7 +217,7 @@ class _HomeState extends State<Home> {
                           Padding(padding: EdgeInsets.only(right: 20.0), ),
                           Column(
                             children: <Widget>[
-                              Image.asset("assets/images/feels_like.png",
+                              Image.asset("assets/images/icons8-dew-point-80.png",
                               height: 25.0,
                               width: 25.0,
                               fit: BoxFit.cover,),
@@ -247,7 +262,7 @@ class _HomeState extends State<Home> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Image.asset("assets/images/wind.png",
+                              Image.asset("assets/images/icons8-windsurfing-80.png",
                                 height: 25.0,
                                 width: 25.0,
                                 fit: BoxFit.cover,
@@ -273,7 +288,7 @@ class _HomeState extends State<Home> {
                                 width: 25.0,
                                 fit: BoxFit.cover,
                               ),
-                              Text('Pressure Panb'),
+                              Text('Pressure bar'),
                               Padding(padding: EdgeInsets.only(bottom: 2.0), ),
                               Text(
                                 pressure!=null?pressure+"hPa":"Load...",
