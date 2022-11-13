@@ -15,23 +15,30 @@ class _HomeState extends State<Home> {
   String lat = '24.45', lon = '89.7167', cityName = 'Sirajganj';
   var temp, realFeel, humidity, windSpeed, weatherDescription, pressure, sunrise, sunset;
   var dateTime = new getTime();
+  bool found = false;
 
   void getLocation() async{
-    LocationPermission locationPermission = await Geolocator.checkPermission();
-    if(locationPermission==LocationPermission.denied || locationPermission==LocationPermission.deniedForever) {
-      LocationPermission get = await Geolocator.requestPermission();
-    }
-    else {
-      Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
-      setState(() {
-        this.lon = position.longitude.toString();
-        this.lat = position.latitude.toString();
+      LocationPermission locationPermission = await Geolocator.checkPermission();
+      if(locationPermission == LocationPermission.denied ||
+          locationPermission == LocationPermission.deniedForever) {
+        LocationPermission get = await Geolocator.requestPermission();
+        found = false;
+        //return false;
+      }
+      else {
+        Position position = await Geolocator.getCurrentPosition(
+            desiredAccuracy: LocationAccuracy.best);
+        setState(() {
+          this.lon = position.longitude.toString();
+          this.lat = position.latitude.toString();
 
-      });
-      // print("long on loc = "+long);
-      // print("lat on loc" +lat);
+        });
+        found = true;
+        //return true;
+        // print("long on loc = "+long);
+        // print("lat on loc" +lat);
+      }
     }
-  }
 
   Future getWeather() async{
     //print("lat = "+lat);
@@ -80,7 +87,13 @@ class _HomeState extends State<Home> {
                 children: [
                   ElevatedButton(onPressed: () {
                     getLocation();
-                    getWeather();
+                    if(found) {
+                      getWeather();
+                    }
+                    else {
+                      getLocation();
+                      getWeather();
+                    }
                   },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.blueGrey,
