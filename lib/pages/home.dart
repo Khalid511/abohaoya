@@ -22,8 +22,6 @@ class _HomeState extends State<Home> {
       if(locationPermission == LocationPermission.denied ||
           locationPermission == LocationPermission.deniedForever) {
         LocationPermission get = await Geolocator.requestPermission();
-        found = false;
-        //return false;
       }
       else {
         Position position = await Geolocator.getCurrentPosition(
@@ -31,13 +29,15 @@ class _HomeState extends State<Home> {
         setState(() {
           this.lon = position.longitude.toString();
           this.lat = position.latitude.toString();
-
+          found = true;
         });
-        found = true;
         //return true;
         // print("long on loc = "+long);
         // print("lat on loc" +lat);
       }
+      // print("found= "+found.toString());
+      // print("lat = "+lat);
+      // print("lon = "+lon);
     }
 
   Future getWeather() async{
@@ -56,9 +56,10 @@ class _HomeState extends State<Home> {
       sunrise = dateTime.readTime(results['sys']['sunrise']);
       sunset = dateTime.readTime(results['sys']['sunset']);
     });
+    print("temp = "+temp);
+    print("found= "+found.toString());
     print("lat = "+lat);
     print("lon = "+lon);
-    print("temp = "+temp);
   }
 
 
@@ -87,13 +88,7 @@ class _HomeState extends State<Home> {
                 children: [
                   ElevatedButton(onPressed: () {
                     getLocation();
-                    if(found) {
-                      getWeather();
-                    }
-                    else {
-                      getLocation();
-                      getWeather();
-                    }
+                    getWeather();
                   },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.blueGrey,
