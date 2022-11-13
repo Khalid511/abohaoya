@@ -322,6 +322,7 @@ class _HomeState extends State<Home> {
                                 style: TextStyle(
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
+                                  color: Colors.blue,
                                 ),
                               ),
                             ],
@@ -341,6 +342,7 @@ class _HomeState extends State<Home> {
                                 style: TextStyle(
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
+                                  color: Colors.red
                                 ),
                               )
                             ],
