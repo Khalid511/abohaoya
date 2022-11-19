@@ -22,6 +22,14 @@ class getTime {
       'Cumilla',
       'Narayanganj',
       'Gazipur',
+      'Salanga',
+      'Ullapara',
+      'Pabna',
+      'Bogra',
+      'Naogaon',
+      'Kushtia',
+      'Kolkata',
+      'Delhi'
     ];
     return cities;
   }
