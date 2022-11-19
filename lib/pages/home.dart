@@ -14,7 +14,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  String lat = '24.45', lon = '89.7167', cityName = 'Sirajganj', selectedCity = 'Sirajganj';
+  String lat = '', lon = '', cityName = 'Sirajganj', selectedCity = 'Sirajganj';
   var temp, realFeel, humidity, windSpeed, weatherDescription, pressure, sunrise, sunset;
   var dateTime = new getTime();
   bool isLocation = false;
