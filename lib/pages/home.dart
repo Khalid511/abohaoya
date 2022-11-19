@@ -14,7 +14,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  String lat = '24.45', lon = '89.7167', cityName = 'Sirajganj';
+  String lat = '24.45', lon = '89.7167', cityName = 'Sirajganj', selectedCity = 'Sirajganj';
   var temp, realFeel, humidity, windSpeed, weatherDescription, pressure, sunrise, sunset;
   var dateTime = new getTime();
   bool isLocation = false;
@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
   Future getWeather() async{
     //print("lat = "+lat);
     //print("lon = "+lon);
-    String url = "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&units=metric&appid=382c950e1e150b70392101ded43e7739";
+    String url = "https://api.openweathermap.org/data/2.5/weather?q="+selectedCity+"&units=metric&appid=382c950e1e150b70392101ded43e7739";
     if(isLocation)
       url = "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric&appid=382c950e1e150b70392101ded43e7739";
     http.Response response = await http.get(Uri.parse(url));
@@ -124,7 +124,7 @@ class _HomeState extends State<Home> {
                         onChanged: (value) {
                           setState(() {
                             selectedValue = value as String;
-                            cityName = selectedValue.toString();
+                            selectedCity = selectedValue.toString();
                             changedCity();
                           });
                         },
