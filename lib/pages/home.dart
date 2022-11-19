@@ -69,6 +69,14 @@ class _HomeState extends State<Home> {
   }
 
 
+  void changedCity(){
+    setState(() {
+      isLocation = false;
+    });
+  }
+  void changeLoc(){
+    isLocation = true;
+  }
 
   @override
   void initState() {
@@ -116,6 +124,7 @@ class _HomeState extends State<Home> {
                           setState(() {
                             selectedValue = value as String;
                             cityName = selectedValue.toString();
+                            changedCity();
                           });
                         },
                       ),
@@ -123,7 +132,8 @@ class _HomeState extends State<Home> {
                   ),
                   ElevatedButton(onPressed: () {
                     getLocation();
-                    getWeather();
+                    changeLoc();
+                    //getWeather();
                   },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.red.shade900,
@@ -145,10 +155,31 @@ class _HomeState extends State<Home> {
                   ),
                   //Colors.amberAccent.shade400
                   color: Colors.amberAccent.shade400,
-                  child: Padding(padding: EdgeInsets.all(20.0),
-                    child: Row(
+                  child: Padding(padding: EdgeInsets.all(15.0),
+                    child: Column(
                   children: <Widget>[
-                    Column(
+                    Row(
+                      children: [
+                        Padding(padding: EdgeInsets.only(right: 90.0),),
+                        ElevatedButton(onPressed: (){
+                          getWeather();
+                        },
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.amberAccent.shade400
+                            ),
+                            child: Text(
+                              'GET WEATHER',
+                              style: TextStyle(
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blueGrey
+                              ),
+                            ))
+                      ],
+                    ),
+                    Row(
+                    children: [
+                      Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
@@ -170,7 +201,8 @@ class _HomeState extends State<Home> {
                       //Padding(padding: EdgeInsets.all(15.0),),
                     ],
                   ),
-                    Padding(padding: EdgeInsets.all(80.0),),
+                    Padding(padding: EdgeInsets.only(right: 60.0), ),
+                    Padding(padding: EdgeInsets.all(60.0),),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -190,7 +222,9 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ],
-                    )
+                    ),
+                  ],
+                    ),
                     ],
                 ),
                   ),
