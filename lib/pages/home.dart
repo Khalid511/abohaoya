@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:abohaoya/pages/getTime.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -15,7 +17,8 @@ class _HomeState extends State<Home> {
   String lat = '24.45', lon = '89.7167', cityName = 'Sirajganj';
   var temp, realFeel, humidity, windSpeed, weatherDescription, pressure, sunrise, sunset;
   var dateTime = new getTime();
-  bool found = false;
+  bool isLocation = false;
+  String? selectedValue;
 
   void getLocation() async{
       LocationPermission locationPermission = await Geolocator.checkPermission();
@@ -29,7 +32,7 @@ class _HomeState extends State<Home> {
         setState(() {
           this.lon = position.longitude.toString();
           this.lat = position.latitude.toString();
-          found = true;
+          //found = true;
         });
         //return true;
         // print("long on loc = "+long);
@@ -43,7 +46,10 @@ class _HomeState extends State<Home> {
   Future getWeather() async{
     //print("lat = "+lat);
     //print("lon = "+lon);
-    http.Response response = await http.get(Uri.parse("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric&appid=382c950e1e150b70392101ded43e7739"));
+    String url = "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&units=metric&appid=382c950e1e150b70392101ded43e7739";
+    if(isLocation)
+      url = "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric&appid=382c950e1e150b70392101ded43e7739";
+    http.Response response = await http.get(Uri.parse(url));
     var results = jsonDecode(response.body);
     setState(() {
       cityName = results['name'];
@@ -57,7 +63,7 @@ class _HomeState extends State<Home> {
       sunset = dateTime.readTime(results['sys']['sunset']);
     });
     print("temp = "+temp);
-    print("found= "+found.toString());
+    //print("found= "+found.toString());
     print("lat = "+lat);
     print("lon = "+lon);
   }
@@ -86,6 +92,35 @@ class _HomeState extends State<Home> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  SizedBox(
+                    height: 50,
+                    width: 160,
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton2(
+                        hint: Text(
+                          'Select city'
+                        ),
+                        items: dateTime.getCity().map((city) => 
+                        DropdownMenuItem<String>(
+                          value: city,
+                          child: Text(
+                            city, style: TextStyle(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          ),
+                        ),
+                        ).toList(),
+                        value: selectedValue,
+                        onChanged: (value) {
+                          setState(() {
+                            selectedValue = value as String;
+                            cityName = selectedValue.toString();
+                          });
+                        },
+                      ),
+                    ),
+                  ),
                   ElevatedButton(onPressed: () {
                     getLocation();
                     getWeather();
@@ -103,12 +138,6 @@ class _HomeState extends State<Home> {
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: 210.0,
-                // decoration: BoxDecoration(
-                //     image: DecorationImage(
-                //       image: AssetImage("assets/images/pexels-pixabay-36717.jpg"),
-                //       fit: BoxFit.cover,
-                //     )
-                // ),
                 child: Padding(padding: EdgeInsets.all(2.0),
                 child: Card(
                   shape: RoundedRectangleBorder(
@@ -119,14 +148,6 @@ class _HomeState extends State<Home> {
                   child: Padding(padding: EdgeInsets.all(20.0),
                     child: Row(
                   children: <Widget>[
-                    // Container(
-                    // decoration: BoxDecoration(
-                    //       image: DecorationImage(
-                    //         image: AssetImage("assets/images/pexels-pixabay-36717.jpg"),
-                    //         fit: BoxFit.cover,
-                    //       ),
-                    //    ),
-                    // ),
                     Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,

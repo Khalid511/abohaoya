@@ -7,4 +7,22 @@ class getTime {
     var date = DateTime.fromMillisecondsSinceEpoch(timeStamp*1000);
     return format.format(date);
   }
+
+  List<String> getCity() {
+    final List<String> cities = [
+      'Dhaka',
+      'Rajshahi',
+      'Khulna',
+      'Sirajganj',
+      'Chattogram',
+      'Sylhet',
+      'Rangpur',
+      'Mymensingh',
+      'Barishal',
+      'Cumilla',
+      'Narayanganj',
+      'Gazipur',
+    ];
+    return cities;
+  }
 }

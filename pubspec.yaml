@@ -43,6 +43,7 @@ dev_dependencies:
   http: ^0.13.5
   intl: ^0.17.0
   flutter_launcher_icons: ^0.10.0
+  dropdown_button2: ^1.8.9
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
