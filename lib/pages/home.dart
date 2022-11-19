@@ -201,7 +201,7 @@ class _HomeState extends State<Home> {
                       //Padding(padding: EdgeInsets.all(15.0),),
                     ],
                   ),
-                    Padding(padding: EdgeInsets.only(right: 60.0), ),
+                    Padding(padding: EdgeInsets.only(right: cityName.length<10? 60.0 : 0.0), ),
                     Padding(padding: EdgeInsets.all(60.0),),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
