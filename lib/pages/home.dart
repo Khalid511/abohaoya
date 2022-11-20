@@ -134,7 +134,6 @@ class _HomeState extends State<Home> {
                   ElevatedButton(onPressed: () {
                     getLocation();
                     changeLoc();
-                    //getWeather();
                   },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.red.shade900,
