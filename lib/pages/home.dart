@@ -5,6 +5,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:abohaoya/pages/getTime.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:abohaoya/pages/ForecastList.dart';
 
 
 class Home extends StatefulWidget {
@@ -46,6 +47,7 @@ class _HomeState extends State<Home> {
   Future getWeather() async{
     //print("lat = "+lat);
     //print("lon = "+lon);
+    print("city = "+selectedCity);
     String url = "https://api.openweathermap.org/data/2.5/weather?q="+selectedCity+"&units=metric&appid=382c950e1e150b70392101ded43e7739";
     if(isLocation)
       url = "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric&appid=382c950e1e150b70392101ded43e7739";
@@ -96,7 +98,8 @@ class _HomeState extends State<Home> {
           ),),
           centerTitle: true,
         ),
-        body: Column(
+        body: SingleChildScrollView(
+        child: Column(
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -231,7 +234,9 @@ class _HomeState extends State<Home> {
                 ),
                 ),
               ),
-              Expanded(
+              Container(
+                height: 480,
+                width: MediaQuery.of(context).size.width,
                 child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
@@ -410,8 +415,15 @@ class _HomeState extends State<Home> {
                 ),
 
                   ),
+              Container(
+                height: 200,
+                child: const ForecastList(),
+                //width: MediaQuery.of(context).size.width,
+                //color: Colors.orange,
+              )
             ],
           ),
+    ),
     );
   }
 }
