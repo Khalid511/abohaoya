@@ -10,51 +10,73 @@ class ForecastList extends StatelessWidget {
       children: [
         Container(
           width: 150,
-          color: Colors.yellow,
+         // color: Colors.yellow,
           child: Text(
             "Sun"
           ),
+          decoration: BoxDecoration(
+            color: Colors.yellow,
+            borderRadius: BorderRadius.all(Radius.circular(100)),
+          ),
         ),
         Container(
           width: 150,
-          color: Colors.purple,
           child: Text(
             "Mon",
           ),
+          decoration: BoxDecoration(
+            color: Colors.purple,
+            borderRadius: BorderRadius.all(Radius.circular(100)),
+          ),
         ),
         Container(
           width: 150,
-          color: Colors.red,
           child: Text(
             "Tue",
           ),
+          decoration: BoxDecoration(
+            color: Colors.red,
+            borderRadius: BorderRadius.all(Radius.circular(100)),
+          ),
         ),
         Container(
           width: 150,
-          color: Colors.orange,
           child: Text(
             "Wed",
           ),
+          decoration: BoxDecoration(
+            color: Colors.orange,
+            borderRadius: BorderRadius.all(Radius.circular(100)),
+          ),
         ),
         Container(
           width: 150,
-          color: Colors.blue,
           child: Text(
             "Thu",
           ),
-        ),
-        Container(
-          width: 150,
-          color: Colors.green,
-          child: Text(
-            "Fri",
+          decoration: BoxDecoration(
+            color: Colors.blue,
+            borderRadius: BorderRadius.all(Radius.circular(100)),
           ),
         ),
         Container(
           width: 150,
-          color: Colors.black,
+          child: Text(
+            "Fri",
+          ),
+          decoration: BoxDecoration(
+            color: Colors.green,
+            borderRadius: BorderRadius.all(Radius.circular(100)),
+          ),
+        ),
+        Container(
+          width: 150,
           child: Text(
             "Sat",
+          ),
+          decoration: BoxDecoration(
+            color: Colors.black,
+            borderRadius: BorderRadius.all(Radius.circular(100)),
           ),
         ),
       ],
