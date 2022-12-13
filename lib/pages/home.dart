@@ -17,6 +17,12 @@ class _HomeState extends State<Home> {
 
   String lat = '', lon = '', cityName = 'Sirajganj', selectedCity = 'Sirajganj';
   var temp, realFeel, humidity, windSpeed, weatherDescription, pressure, sunrise, sunset;
+  var maxtem1, mintemp1, date1;
+  var maxtem2, mintemp2, date2;
+  var maxtem3, mintemp3, date3;
+  var maxtem4, mintemp4, date4;
+  var maxtem5, mintemp5, date5;
+  var maxtem6, mintemp6, date6;
   var dateTime = new getTime();
   bool isLocation = false;
   String? selectedValue;
@@ -47,22 +53,44 @@ class _HomeState extends State<Home> {
   Future getWeather() async{
     //print("lat = "+lat);
     //print("lon = "+lon);
-    print("city = "+selectedCity);
-    String url = "https://api.openweathermap.org/data/2.5/weather?q="+selectedCity+"&units=metric&appid=382c950e1e150b70392101ded43e7739";
+    String url = "http://api.weatherapi.com/v1/forecast.json?key=23e30e09626240998a133605222011 &q="+selectedCity+"&days=7&aqi=yes&alerts=no";
+    // String url = "https://api.openweathermap.org/data/2.5/weather?q="+selectedCity+"&units=metric&appid=382c950e1e150b70392101ded43e7739";
+    // if(isLocation)
+    //   url = "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric&appid=382c950e1e150b70392101ded43e7739";
     if(isLocation)
-      url = "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric&appid=382c950e1e150b70392101ded43e7739";
+      url = "http://api.weatherapi.com/v1/forecast.json?key=23e30e09626240998a133605222011 &q="+lat+","+lon+"&days=7&aqi=yes&alerts=no";
     http.Response response = await http.get(Uri.parse(url));
     var results = jsonDecode(response.body);
     setState(() {
-      cityName = results['name'];
-      temp = results['main']['temp'].toString();
-      realFeel = results['main']['feels_like'].toString();
-      humidity = results['main']['humidity'].toString();
-      windSpeed = results['wind']['speed'].toString();
-      weatherDescription = results['weather'][0]['description'].toString();
-      pressure = results['main']['pressure'].toString();
-      sunrise = dateTime.readTime(results['sys']['sunrise']);
-      sunset = dateTime.readTime(results['sys']['sunset']);
+      cityName = results['location']['name'];
+      temp = results['current']['temp_c'].toString();
+      //realFeel = results['main']['feels_like'].toString();
+      //humidity = results['main']['humidity'].toString();
+      //windSpeed = results['wind']['speed'].toString();
+      weatherDescription = results['current']['condition']['text'];
+      //weatherDescription = results['weather'][0]['description'].toString();
+      // pressure = results['main']['pressure'].toString();
+      // sunrise = dateTime.readTime(results['sys']['sunrise']);
+      // sunset = dateTime.readTime(results['sys']['sunset']);
+
+      maxtem1 = results['forecast']['forecastday'][1]['day']['maxtemp_c'].toString();
+      mintemp1 = results['forecast']['forecastday'][1]['day']['mintemp_c'].toString();
+      //date1 = dateTime.getDay(results['forecast']['forecastday'][1]['date'].toString());
+      maxtem2 = results['forecast']['forecastday'][2]['day']['maxtemp_c'].toString();
+      mintemp2 = results['forecast']['forecastday'][2]['day']['mintemp_c'].toString();
+      //date2 = dateTime.getDay(results['forecast']['forecastday'][2]['date'].toString());
+      maxtem3 = results['forecast']['forecastday'][3]['day']['maxtemp_c'].toString();
+      mintemp3 = results['forecast']['forecastday'][3]['day']['mintemp_c'].toString();
+     // date3 = dateTime.getDay(results['forecast']['forecastday'][3]['date'].toString());
+      maxtem4 = results['forecast']['forecastday'][4]['day']['maxtemp_c'].toString();
+      mintemp4 = results['forecast']['forecastday'][4]['day']['mintemp_c'].toString();
+     // date4 = dateTime.getDay(results['forecast']['forecastday'][4]['date'].toString());
+      maxtem5 = results['forecast']['forecastday'][5]['day']['maxtemp_c'].toString();
+      mintemp5 = results['forecast']['forecastday'][5]['day']['mintemp_c'].toString();
+     // date5 = dateTime.getDay(results['forecast']['forecastday'][5]['date'].toString());
+      maxtem6 = results['forecast']['forecastday'][6]['day']['maxtemp_c'].toString();
+      mintemp6 = results['forecast']['forecastday'][6]['day']['mintemp_c'].toString();
+      //date6 = dateTime.getDay(results['forecast']['forecastday'][6]['date'].toString());
     });
     print("temp = "+temp);
     //print("found= "+found.toString());
