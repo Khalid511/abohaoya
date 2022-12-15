@@ -74,18 +74,18 @@ class _HomeState extends State<Home> {
       sunrise = dateTime.readTime(results['city']['sunrise']);
       sunset = dateTime.readTime(results['city']['sunset']);
 
-      maxtem1 = results['list'][3]['main']['temp_max'].toString();
-      mintemp1 = results['list'][3]['main']['temp_min'].toString();
-      date1 = dateTime.getDay(results['list'][3]['dt_txt']);
-      // maxtem2 = results['forecast']['forecastday'][2]['day']['maxtemp_c'].toString();
-      // mintemp2 = results['forecast']['forecastday'][2]['day']['mintemp_c'].toString();
-      // date2 = dateTime.getDay(results['forecast']['forecastday'][2]['date'].toString());
-      // maxtem3 = results['forecast']['forecastday'][3]['day']['maxtemp_c'].toString();
-      // mintemp3 = results['forecast']['forecastday'][3]['day']['mintemp_c'].toString();
-      // date3 = dateTime.getDay(results['forecast']['forecastday'][3]['date'].toString());
-      // maxtem4 = results['forecast']['forecastday'][4]['day']['maxtemp_c'].toString();
-      // mintemp4 = results['forecast']['forecastday'][4]['day']['mintemp_c'].toString();
-      // date4 = dateTime.getDay(results['forecast']['forecastday'][4]['date'].toString());
+      maxtem1 = results['list'][10]['main']['temp_max'].toString();
+      mintemp1 = results['list'][10]['main']['temp_min'].toString();
+      date1 = dateTime.getDay(results['list'][10]['dt_txt']);
+      maxtem2 = results['list'][18]['main']['temp_max'].toString();
+      mintemp2 = results['list'][18]['main']['temp_min'].toString();
+      date2 = dateTime.getDay(results['list'][18]['dt_txt']);
+      maxtem3 = results['list'][26]['main']['temp_max'].toString();
+      mintemp3 = results['list'][26]['main']['temp_min'].toString();
+      date3 = dateTime.getDay(results['list'][26]['dt_txt']);
+      maxtem4 = results['list'][34]['main']['temp_max'].toString();
+      mintemp4 = results['list'][34]['main']['temp_min'].toString();
+      date4 = dateTime.getDay(results['list'][34]['dt_txt']);
       // maxtem5 = results['forecast']['forecastday'][5]['day']['maxtemp_c'].toString();
       // mintemp5 = results['forecast']['forecastday'][5]['day']['mintemp_c'].toString();
       // date5 = dateTime.getDay(results['forecast']['forecastday'][5]['date'].toString());
@@ -97,8 +97,8 @@ class _HomeState extends State<Home> {
     //print("found= "+found.toString());
     print("lat = "+lat);
     print("lon = "+lon);
-
-    print("Days: "+date1+" "+date2+" "+date3+" "+date4+" "+date5+" "+date6);
+    print(date1.toString().substring(0, 11));
+    //print("Days: "+date1+" "+date2+" "+date3+" "+date4+" "+date5+" "+date6);
   }
 
 
@@ -451,9 +451,7 @@ class _HomeState extends State<Home> {
                  child:  ForecastList(maxtem1, mintemp1, date1,
                      maxtem2, mintemp2, date2,
                      maxtem3, mintemp3, date3,
-                     maxtem4, mintemp4, date4,
-                     maxtem5, mintemp5, date5,
-                     maxtem6, mintemp6, date6),
+                     maxtem4, mintemp4, date4),
                 //width: MediaQuery.of(context).size.width,
                 //color: Colors.orange,
               )

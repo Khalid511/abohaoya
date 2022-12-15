@@ -4,15 +4,11 @@ class ForecastList extends StatefulWidget {
   var maxtem1, mintemp1, day1,
       maxtem2, mintemp2, day2,
       maxtem3, mintemp3, day3,
-      maxtem4, mintemp4, day4,
-      maxtem5, mintemp5, day5,
-      maxtem6, mintemp6, day6;
+      maxtem4, mintemp4, day4;
   ForecastList(this.maxtem1, this.mintemp1, this.day1,
       this.maxtem2, this.mintemp2, this.day2,
       this.maxtem3, this.mintemp3, this.day3,
-      this.maxtem4, this.mintemp4, this.day4,
-      this.maxtem5, this.mintemp5, this.day5,
-      this.maxtem6, this.mintemp6, this.day6);
+      this.maxtem4, this.mintemp4, this.day4);
 
   @override
   State<ForecastList> createState() => _ForecastList();
@@ -211,102 +207,7 @@ class _ForecastList extends State<ForecastList> {
             borderRadius: BorderRadius.all(Radius.circular(100)),
           ),
         ),
-        Container(
-          width: 150,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                widget.day5!=null?widget.day5:"Load",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-              Padding(padding: EdgeInsets.only(bottom: 10)),
-              Text(
-                widget.maxtem5!=null? widget.mintemp5+"/"+widget.maxtem5+"\u00B0C" : "Min / Max",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.yellowAccent,
-                ),
-              ),
-              Padding(padding: EdgeInsets.only(bottom: 10)),
-              Text(
-                "Description",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.purple,
-                ),
-              ),
-              Padding(padding: EdgeInsets.only(bottom: 10)),
-              ElevatedButton(onPressed: (){
 
-              },
-                child: Text(
-                  "View",
-                ),
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.blue,
-                ),
-              ),
-            ],
-          ),
-          decoration: BoxDecoration(
-            color: Colors.blue,
-            borderRadius: BorderRadius.all(Radius.circular(100)),
-          ),
-        ),
-        Container(
-          width: 150,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                widget.day6!=null?widget.day6:"Load",
-                style: TextStyle(
-                  color: Colors.yellowAccent,
-                ),
-              ),
-              Padding(padding: EdgeInsets.only(bottom: 10)),
-              Text(
-                widget.maxtem6!=null? widget.mintemp6+"/"+widget.maxtem6+"\u00B0C" : "Min / Max",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              Padding(padding: EdgeInsets.only(bottom: 10)),
-              Text(
-                "Description",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.red,
-                ),
-              ),
-              Padding(padding: EdgeInsets.only(bottom: 10)),
-              ElevatedButton(onPressed: (){
-
-              },
-                child: Text(
-                  "View",
-                ),
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.green,
-                ),
-              ),
-            ],
-          ),
-          decoration: BoxDecoration(
-            color: Colors.green,
-            borderRadius: BorderRadius.all(Radius.circular(100)),
-          ),
-        ),
         // Container(
         //   width: 150,
         //   child: Text(
