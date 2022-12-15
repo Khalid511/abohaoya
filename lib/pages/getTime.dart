@@ -8,6 +8,14 @@ class getTime {
     return format.format(date);
   }
 
+  String getDay(String date) {
+    //var now = DateTime.now();
+    //var format = DateFormat("dd-mm-yyyy");
+    //String date = DateTime.fromMillisecondsSinceEpoch(timeStamp*1000).toString();
+    String subDate = date.substring(1, 11);
+    return DateFormat('EEEE').format(DateTime.parse(subDate));
+  }
+
   List<String> getCity() {
     final List<String> cities = [
       'Dhaka',

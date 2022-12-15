@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
 
-class ForecastList extends StatelessWidget {
-  const ForecastList({Key? key}) : super(key: key);
+class ForecastList extends StatefulWidget {
+  var maxtem1, mintemp1, day1,
+      maxtem2, mintemp2, day2,
+      maxtem3, mintemp3, day3,
+      maxtem4, mintemp4, day4,
+      maxtem5, mintemp5, day5,
+      maxtem6, mintemp6, day6;
+  ForecastList(this.maxtem1, this.mintemp1, this.day1,
+      this.maxtem2, this.mintemp2, this.day2,
+      this.maxtem3, this.mintemp3, this.day3,
+      this.maxtem4, this.mintemp4, this.day4,
+      this.maxtem5, this.mintemp5, this.day5,
+      this.maxtem6, this.mintemp6, this.day6);
 
+  @override
+  State<ForecastList> createState() => _ForecastList();
+}
+
+class _ForecastList extends State<ForecastList> {
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -16,11 +32,11 @@ class ForecastList extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "Sun",
+                widget.day1!=null?widget.day1:"Load",
               ),
               Padding(padding: EdgeInsets.only(bottom: 10)),
               Text(
-                "Min / Max",
+                widget.maxtem1!=null? widget.mintemp1+"/"+widget.maxtem1+"\u00B0C" : "Min / Max",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -61,14 +77,14 @@ class ForecastList extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "Mon",
+                widget.day2!=null?widget.day2:"Load",
                 style: TextStyle(
                   color: Colors.white,
                 ),
               ),
               Padding(padding: EdgeInsets.only(bottom: 10)),
               Text(
-                "Min / Max",
+                widget.maxtem2!=null? widget.mintemp2+"/"+widget.maxtem2+"\u00B0C" : "Min / Max",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -109,11 +125,11 @@ class ForecastList extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "Tue",
+                widget.day3!=null?widget.day3:"Load",
               ),
               Padding(padding: EdgeInsets.only(bottom: 10)),
               Text(
-                "Min / Max",
+                widget.maxtem3!=null? widget.mintemp3+"/"+widget.maxtem3+"\u00B0C" : "Min / Max",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -154,14 +170,14 @@ class ForecastList extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "Wed",
+                widget.day4!=null?widget.day4:"Load",
                 style: TextStyle(
                   color: Colors.teal,
                 ),
               ),
               Padding(padding: EdgeInsets.only(bottom: 10)),
               Text(
-                "Min / Max",
+                widget.maxtem4!=null? widget.mintemp4+"/"+widget.maxtem4+"\u00B0C" : "Min / Max",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -202,14 +218,14 @@ class ForecastList extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "Thu",
+                widget.day5!=null?widget.day5:"Load",
                 style: TextStyle(
                   color: Colors.white,
                 ),
               ),
               Padding(padding: EdgeInsets.only(bottom: 10)),
               Text(
-                "Min / Max",
+                widget.maxtem5!=null? widget.mintemp5+"/"+widget.maxtem5+"\u00B0C" : "Min / Max",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -250,14 +266,14 @@ class ForecastList extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "Fri",
+                widget.day6!=null?widget.day6:"Load",
                 style: TextStyle(
                   color: Colors.yellowAccent,
                 ),
               ),
               Padding(padding: EdgeInsets.only(bottom: 10)),
               Text(
-                "Min / Max",
+                widget.maxtem6!=null? widget.mintemp6+"/"+widget.maxtem6+"\u00B0C" : "Min / Max",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
