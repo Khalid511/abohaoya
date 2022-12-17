@@ -24,6 +24,9 @@ class _HomeState extends State<Home> {
   var maxtem5, mintemp5, date5;
   var maxtem6, mintemp6, date6;
   var description1, description2, description3, description4;
+  var pressure1, pressure2, pressure3, pressure4, humidity1, humidity2, humidity3, humidity4, icon1, icon2, icon3, icon4,
+  weatherMain1, weatherMain2, weatherMain3, weatherMain4, windSpeed1, windSpeed2, windSpeed3, windSpeed4,
+  visibility1, visibility2, visibility3, visibility4;
   var dateTime = new getTime();
   bool isLocation = false;
   String? selectedValue;
@@ -91,12 +94,30 @@ class _HomeState extends State<Home> {
       description2 = results['list'][18]['weather'][0]['description'];
       description3 = results['list'][26]['weather'][0]['description'];
       description4 = results['list'][34]['weather'][0]['description'];
-      // maxtem5 = results['forecast']['forecastday'][5]['day']['maxtemp_c'].toString();
-      // mintemp5 = results['forecast']['forecastday'][5]['day']['mintemp_c'].toString();
-      // date5 = dateTime.getDay(results['forecast']['forecastday'][5]['date'].toString());
-      // maxtem6 = results['forecast']['forecastday'][6]['day']['maxtemp_c'].toString();
-      // mintemp6 = results['forecast']['forecastday'][6]['day']['mintemp_c'].toString();
-      // date6 = dateTime.getDay(results['forecast']['forecastday'][6]['date'].toString());
+      pressure1 = results['list'][10]['main']['pressure'].toString();
+      pressure2 = results['list'][18]['main']['pressure'].toString();
+      pressure3 = results['list'][26]['main']['pressure'].toString();
+      pressure4 = results['list'][34]['main']['pressure'].toString();
+      humidity1 = results['list'][10]['main']['humidity'].toString();
+      humidity2 = results['list'][18]['main']['humidity'].toString();
+      humidity3 = results['list'][26]['main']['humidity'].toString();
+      humidity4 = results['list'][34]['main']['humidity'].toString();
+      weatherMain1 = results['list'][10]['weather'][0]['main'];
+      weatherMain2 = results['list'][18]['weather'][0]['main'];
+      weatherMain1 = results['list'][26]['weather'][0]['main'];
+      weatherMain1 = results['list'][34]['weather'][0]['main'];
+      icon1 = results['list'][10]['weather'][0]['icon'];
+      icon2 = results['list'][18]['weather'][0]['icon'];
+      icon3 = results['list'][26]['weather'][0]['icon'];
+      icon4 = results['list'][34]['weather'][0]['icon'];
+      windSpeed1 = results['list'][10]['wind']['speed'].toString();
+      windSpeed2 = results['list'][18]['wind']['speed'].toString();
+      windSpeed3 = results['list'][26]['wind']['speed'].toString();
+      windSpeed4 = results['list'][34]['wind']['speed'].toString();
+      visibility1 = results['list'][10]['visibility'].toString();
+      visibility2 = results['list'][18]['visibility'].toString();
+      visibility3 = results['list'][26]['visibility'].toString();
+      visibility4 = results['list'][34]['visibility'].toString();
     });
     print("temp = "+temp);
     //print("found= "+found.toString());
@@ -457,7 +478,13 @@ class _HomeState extends State<Home> {
                      maxtem2, mintemp2, date2,
                      maxtem3, mintemp3, date3,
                      maxtem4, mintemp4, date4,
-                     description1, description2, description3, description4),
+                     description1, description2, description3, description4,
+                     pressure1, pressure2, pressure3, pressure4,
+                     humidity1, humidity2, humidity3, humidity4,
+                   weatherMain1, weatherMain2, weatherMain3, weatherMain4,
+                   icon1, icon2, icon3, icon4,
+                   windSpeed1, windSpeed2, windSpeed3, windSpeed4,
+                   visibility1, visibility2, visibility3, visibility4),
                 //width: MediaQuery.of(context).size.width,
                 //color: Colors.orange,
               )

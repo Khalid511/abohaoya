@@ -1,16 +1,28 @@
 import 'package:flutter/material.dart';
-
+import 'package:abohaoya/pages/ForecastDayOne.dart';
 class ForecastList extends StatefulWidget {
   var maxtem1, mintemp1, day1,
       maxtem2, mintemp2, day2,
       maxtem3, mintemp3, day3,
       maxtem4, mintemp4, day4;
   var description1, description2, description3, description4;
+  var pressure1, pressure2, pressure3, pressure4,
+      humidity1, humidity2, humidity3, humidity4,
+      weatherMain1, weatherMain2, weatherMain3, weatherMain4,
+      icon1, icon2, icon3, icon4,
+      windSpeed1, windSpeed2, windSpeed3, windSpeed4,
+      visibility1, visibility2, visibility3, visibility4;
   ForecastList(this.maxtem1, this.mintemp1, this.day1,
       this.maxtem2, this.mintemp2, this.day2,
       this.maxtem3, this.mintemp3, this.day3,
       this.maxtem4, this.mintemp4, this.day4,
-      this.description1, this.description2, this.description3, this.description4);
+      this.description1, this.description2, this.description3, this.description4,
+      this.pressure1, this.pressure2, this.pressure3, this.pressure4,
+      this.humidity1, this.humidity2, this.humidity3, this.humidity4,
+      this.weatherMain1, this.weatherMain2, this.weatherMain3, this.weatherMain4,
+      this.icon1, this.icon2, this.icon3, this.icon4,
+      this.windSpeed1, this.windSpeed2, this.windSpeed3, this.windSpeed4,
+      this.visibility1, this.visibility2, this.visibility3, this.visibility4);
 
   @override
   State<ForecastList> createState() => _ForecastList();
@@ -53,7 +65,12 @@ class _ForecastList extends State<ForecastList> {
               ),
               Padding(padding: EdgeInsets.only(bottom: 10)),
               ElevatedButton(onPressed: (){
-
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ForecastDayOne(
+                    widget.pressure1, widget.humidity1, widget.maxtem1, widget.mintemp1,
+                    widget.weatherMain1, widget.icon1, widget.windSpeed1, widget.visibility1, widget.day1
+                  )),
+                );
               },
                   child: Text(
                     "View",
