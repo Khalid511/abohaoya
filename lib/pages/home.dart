@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:abohaoya/pages/getTime.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:abohaoya/pages/ForecastList.dart';
-
+import 'package:flutter/services.dart' ;
 
 class Home extends StatefulWidget {
   @override
@@ -23,6 +23,7 @@ class _HomeState extends State<Home> {
   var maxtem4, mintemp4, date4;
   var maxtem5, mintemp5, date5;
   var maxtem6, mintemp6, date6;
+  var description1, description2, description3, description4;
   var dateTime = new getTime();
   bool isLocation = false;
   String? selectedValue;
@@ -86,6 +87,10 @@ class _HomeState extends State<Home> {
       maxtem4 = results['list'][34]['main']['temp_max'].toString();
       mintemp4 = results['list'][34]['main']['temp_min'].toString();
       date4 = dateTime.getDay(results['list'][34]['dt_txt']);
+      description1 = results['list'][10]['weather'][0]['description'];
+      description2 = results['list'][18]['weather'][0]['description'];
+      description3 = results['list'][26]['weather'][0]['description'];
+      description4 = results['list'][34]['weather'][0]['description'];
       // maxtem5 = results['forecast']['forecastday'][5]['day']['maxtemp_c'].toString();
       // mintemp5 = results['forecast']['forecastday'][5]['day']['mintemp_c'].toString();
       // date5 = dateTime.getDay(results['forecast']['forecastday'][5]['date'].toString());
@@ -451,7 +456,8 @@ class _HomeState extends State<Home> {
                  child:  ForecastList(maxtem1, mintemp1, date1,
                      maxtem2, mintemp2, date2,
                      maxtem3, mintemp3, date3,
-                     maxtem4, mintemp4, date4),
+                     maxtem4, mintemp4, date4,
+                     description1, description2, description3, description4),
                 //width: MediaQuery.of(context).size.width,
                 //color: Colors.orange,
               )

@@ -5,10 +5,12 @@ class ForecastList extends StatefulWidget {
       maxtem2, mintemp2, day2,
       maxtem3, mintemp3, day3,
       maxtem4, mintemp4, day4;
+  var description1, description2, description3, description4;
   ForecastList(this.maxtem1, this.mintemp1, this.day1,
       this.maxtem2, this.mintemp2, this.day2,
       this.maxtem3, this.mintemp3, this.day3,
-      this.maxtem4, this.mintemp4, this.day4);
+      this.maxtem4, this.mintemp4, this.day4,
+      this.description1, this.description2, this.description3, this.description4);
 
   @override
   State<ForecastList> createState() => _ForecastList();
@@ -16,6 +18,7 @@ class ForecastList extends StatefulWidget {
 
 class _ForecastList extends State<ForecastList> {
   @override
+
   Widget build(BuildContext context) {
     return ListView(
       scrollDirection: Axis.horizontal,
@@ -41,7 +44,7 @@ class _ForecastList extends State<ForecastList> {
               ),
               Padding(padding: EdgeInsets.only(bottom: 10)),
               Text(
-                "Description",
+                widget.description1!=null ? widget.description1 : "Load",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -62,8 +65,15 @@ class _ForecastList extends State<ForecastList> {
             ],
           ),
           decoration: BoxDecoration(
-            color: Colors.yellow,
             borderRadius: BorderRadius.all(Radius.circular(100)),
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Colors.lightBlue,
+                Colors.yellow,
+              ]
+            ),
           ),
         ),
         Container(
@@ -89,7 +99,7 @@ class _ForecastList extends State<ForecastList> {
               ),
               Padding(padding: EdgeInsets.only(bottom: 10)),
               Text(
-                "Description",
+                widget.description2!=null ? widget.description2 : "Load",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -110,8 +120,15 @@ class _ForecastList extends State<ForecastList> {
             ],
           ),
           decoration: BoxDecoration(
-            color: Colors.purple,
             borderRadius: BorderRadius.all(Radius.circular(100)),
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.blueGrey,
+                  Colors.purple,
+                ]
+            ),
           ),
         ),
         Container(
@@ -134,7 +151,7 @@ class _ForecastList extends State<ForecastList> {
               ),
               Padding(padding: EdgeInsets.only(bottom: 10)),
               Text(
-                "Description",
+                widget.description3!=null ? widget.description3 : "Load",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -155,8 +172,15 @@ class _ForecastList extends State<ForecastList> {
             ],
           ),
           decoration: BoxDecoration(
-            color: Colors.red,
             borderRadius: BorderRadius.all(Radius.circular(100)),
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.yellowAccent,
+                  Colors.red,
+                ]
+            ),
           ),
         ),
         Container(
@@ -168,7 +192,7 @@ class _ForecastList extends State<ForecastList> {
               Text(
                 widget.day4!=null?widget.day4:"Load",
                 style: TextStyle(
-                  color: Colors.teal,
+                  color: Colors.yellowAccent,
                 ),
               ),
               Padding(padding: EdgeInsets.only(bottom: 10)),
@@ -177,16 +201,16 @@ class _ForecastList extends State<ForecastList> {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.redAccent,
+                  color: Colors.grey,
                 ),
               ),
               Padding(padding: EdgeInsets.only(bottom: 10)),
               Text(
-                "Description",
+                widget.description4!=null ? widget.description4 : "Load",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blueGrey,
+                  color: Colors.yellowAccent,
                 ),
               ),
               Padding(padding: EdgeInsets.only(bottom: 10)),
@@ -203,8 +227,15 @@ class _ForecastList extends State<ForecastList> {
             ],
           ),
           decoration: BoxDecoration(
-            color: Colors.orange,
             borderRadius: BorderRadius.all(Radius.circular(100)),
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.purple,
+                  Colors.orange,
+                ]
+            ),
           ),
         ),
 
