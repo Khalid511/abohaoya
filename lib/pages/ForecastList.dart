@@ -125,7 +125,12 @@ class _ForecastList extends State<ForecastList> {
               ),
               Padding(padding: EdgeInsets.only(bottom: 10)),
               ElevatedButton(onPressed: (){
-
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ForecastDayOne(
+                      widget.pressure2, widget.humidity2, widget.maxtem2, widget.mintemp2,
+                      widget.weatherMain2, widget.icon2, widget.windSpeed2, widget.visibility2, widget.day2
+                  )),
+                );
               },
                 child: Text(
                   "View",
@@ -177,7 +182,12 @@ class _ForecastList extends State<ForecastList> {
               ),
               Padding(padding: EdgeInsets.only(bottom: 10)),
               ElevatedButton(onPressed: (){
-
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ForecastDayOne(
+                      widget.pressure3, widget.humidity3, widget.maxtem3, widget.mintemp3,
+                      widget.weatherMain3, widget.icon3, widget.windSpeed3, widget.visibility3, widget.day3
+                  )),
+                );
               },
                 child: Text(
                   "View",
@@ -232,7 +242,12 @@ class _ForecastList extends State<ForecastList> {
               ),
               Padding(padding: EdgeInsets.only(bottom: 10)),
               ElevatedButton(onPressed: (){
-
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ForecastDayOne(
+                      widget.pressure4, widget.humidity4, widget.maxtem4, widget.mintemp4,
+                      widget.weatherMain4, widget.icon4, widget.windSpeed4, widget.visibility4, widget.day4
+                  )),
+                );
               },
                 child: Text(
                   "View",

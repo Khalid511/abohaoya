@@ -104,8 +104,8 @@ class _HomeState extends State<Home> {
       humidity4 = results['list'][34]['main']['humidity'].toString();
       weatherMain1 = results['list'][10]['weather'][0]['main'];
       weatherMain2 = results['list'][18]['weather'][0]['main'];
-      weatherMain1 = results['list'][26]['weather'][0]['main'];
-      weatherMain1 = results['list'][34]['weather'][0]['main'];
+      weatherMain3 = results['list'][26]['weather'][0]['main'];
+      weatherMain4 = results['list'][34]['weather'][0]['main'];
       icon1 = results['list'][10]['weather'][0]['icon'];
       icon2 = results['list'][18]['weather'][0]['icon'];
       icon3 = results['list'][26]['weather'][0]['icon'];
@@ -387,7 +387,7 @@ class _HomeState extends State<Home> {
                               Text("Wind speed"),
                               Padding(padding: EdgeInsets.all(2.0), ),
                               Text(
-                                windSpeed!=null?windSpeed+"km/h":"Load...",
+                                windSpeed!=null?windSpeed+"m/s":"Load...",
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
@@ -408,7 +408,7 @@ class _HomeState extends State<Home> {
                               Text('Pressure bar'),
                               Padding(padding: EdgeInsets.only(bottom: 2.0), ),
                               Text(
-                                pressure!=null?pressure+"mbar":"Load...",
+                                pressure!=null?pressure+"hPa":"Load...",
                                 style: TextStyle(
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.bold,

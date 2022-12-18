@@ -22,7 +22,7 @@ class _ForecastDayOneState extends State<ForecastDayOne> {
           },
         ),
         title: Text(
-          "Weather",
+          widget.day+" Weather",
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
