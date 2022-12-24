@@ -7,6 +7,7 @@ import 'package:abohaoya/pages/getTime.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:abohaoya/pages/ForecastList.dart';
 import 'package:flutter/services.dart' ;
+import 'package:flutter_switch/flutter_switch.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -154,6 +155,41 @@ class _HomeState extends State<Home> {
             fontWeight: FontWeight.bold,
           ),),
           centerTitle: true,
+          actions: [
+            PopupMenuButton(
+                itemBuilder: (context) =>
+                    [
+                      PopupMenuItem(
+                        value: 1,
+                        child: Row(
+                          children: [
+                            Text("Theme"),
+                            Padding(padding: EdgeInsets.only(right: 10),),
+                            FlutterSwitch(value: false, onToggle: (val){
+                              setState(() {
+
+                              });
+                              },
+                              borderRadius: 15,
+                            ),
+
+                          ],
+                        ),),
+                      PopupMenuItem(
+                        value: 2,
+                          child: Row(
+                        children: [
+                          Icon(Icons.chrome_reader_mode),
+                          Padding(padding: EdgeInsets.only(right: 10)),
+                          Text("About"),
+                        ],
+                      )),
+                    ],
+              offset: Offset(0, 100),
+              color: Colors.pinkAccent.shade100,
+              //elevation: 2,
+            ),
+          ],
         ),
         body: SingleChildScrollView(
         child: Column(
