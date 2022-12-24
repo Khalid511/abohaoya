@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:abohaoya/main.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
@@ -8,6 +9,8 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:abohaoya/pages/ForecastList.dart';
 import 'package:flutter/services.dart' ;
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:abohaoya/main.dart';
+import 'package:flutter_custom_switch/flutter_custom_switch.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -144,6 +147,7 @@ class _HomeState extends State<Home> {
     // TODO: implement initState
     getWeather();
   }
+  bool status = false;
 
   @override
   Widget build(BuildContext context) {
@@ -165,14 +169,26 @@ class _HomeState extends State<Home> {
                           children: [
                             Text("Theme"),
                             Padding(padding: EdgeInsets.only(right: 10),),
-                            FlutterSwitch(value: false, onToggle: (val){
-                              setState(() {
-
-                              });
+                            FlutterSwitch(
+                              value: status,
+                              valueFontSize: 16.0,
+                              width: 60,
+                              height: 25,
+                              borderRadius: 30.0,
+                              onToggle: (val) {
+                                setState(() {
+                                  status = val;
+                                });
+                                if(status) {
+                                  MyApp.of(context).changeThemeMode(ThemeMode.light);
+                                }
+                                else
+                                  MyApp.of(context).changeThemeMode(ThemeMode.dark);
                               },
-                              borderRadius: 15,
+                              showOnOff: true,
+                              activeColor: Colors.green,
+                              inactiveColor: Colors.red,
                             ),
-
                           ],
                         ),),
                       PopupMenuItem(
